@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import {Card, cardActionAreaClasses, Grid} from "@mui/material";
 
+
 export const ToDo = (props) => {
 
     // stateを作成
@@ -14,28 +15,32 @@ export const ToDo = (props) => {
 
     return (
         <Card>
-                <label className="panel-block">
-                    <Grid container spacing={2}>
-                        <Grid item xs={1}>
-                            <input
-                                type="checkbox"
-                                checked={todo.done}
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={8}>
-                            <span className={classNames({
-                                'has-text-grey-light': todo.done
-                            })}>{todo.text}</span>
-                        </Grid>
-                        <Grid item xs={2}>
+            <label className="panel-block">
+                <Grid container spacing={2} justifyContent="space-between">
+                    <Grid item xs={1}>
+                        <input
+                            type="checkbox"
+                            checked={todo.done}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={7}>
+                        <span className={classNames({
+                            'has-text-grey-light': todo.done
+                        })}>{todo.text}</span>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Grid container justifyContent="flex-end">
                             {todo.createdAt}
                         </Grid>
-                        <Grid item xs={1}>
-                            {todo.priority}
+                    </Grid>
+                    <Grid item justifyContent="flex-end" xs={1}>
+                        <Grid container justifyContent="flex-end">
+                            優先度：{todo.priority}
                         </Grid>
-                        </Grid>
-                </label>
+                    </Grid>
+                </Grid>
+            </label>
         </Card>
     );
 }

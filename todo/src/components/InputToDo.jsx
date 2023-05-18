@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
+import {MenuItem, Select} from "@mui/material";
 
 export const InputToDo = (props) => {
 
@@ -30,13 +31,16 @@ export const InputToDo = (props) => {
                 value={text}
                 onChange={handleChange}
             />
-            <input
-                className="input"
-                type="text"
-                placeholder="Enter to add"
+
+
+            <Select
                 value={priority}
-                onChange={handlePriorityChange}
-            />
+                onChange={handlePriorityChange}>
+                <MenuItem value={'低'}>低</MenuItem>
+                <MenuItem value={'中'}>中</MenuItem>
+                <MenuItem value={'高'}>高</MenuItem>
+            </Select>
+
             <button onClick={handleEnter} className="button">Add</button>
         </div>
     );
