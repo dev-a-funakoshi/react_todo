@@ -3,6 +3,7 @@ import 'bulma/css/bulma.css';
 import icon from '../icon.png'
 
 import { InputToDo, Filter, ToDo } from './index';
+import {Card} from "@mui/material";
 
 export const ToDoApp = () => {
 
@@ -23,7 +24,7 @@ export const ToDoApp = () => {
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
         const day = date.getDate();
-        return `${year}年${month}月${day}日`;
+        return `作成日：${year}年${month}月${day}日`;
     }
 
     // フィルターの切り替え

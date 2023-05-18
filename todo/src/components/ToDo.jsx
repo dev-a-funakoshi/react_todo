@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import 'bulma/css/bulma.css';
+import {Card, cardActionAreaClasses, Grid} from "@mui/material";
 
 export const ToDo = (props) => {
 
@@ -12,24 +13,30 @@ export const ToDo = (props) => {
     };
 
     return (
-        <label className="panel-block">
-            <input
-                type="checkbox"
-                checked={todo.done}
-                onChange={handleChange}
-            />
-            <span
-                className={classNames({
-                    'has-text-grey-light': todo.done
-                })}
-            >
-                {todo.text}
-            </span>
-            <h2>{todo.createdAt}</h2>
-            <h1>
-                {todo.priority}
-            </h1>
-        </label>
+        <Card>
+                <label className="panel-block">
+                    <Grid container spacing={2}>
+                        <Grid item xs={1}>
+                            <input
+                                type="checkbox"
+                                checked={todo.done}
+                                onChange={handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={8}>
+                            <span className={classNames({
+                                'has-text-grey-light': todo.done
+                            })}>{todo.text}</span>
+                        </Grid>
+                        <Grid item xs={2}>
+                            {todo.createdAt}
+                        </Grid>
+                        <Grid item xs={1}>
+                            {todo.priority}
+                        </Grid>
+                        </Grid>
+                </label>
+        </Card>
     );
 }
 
