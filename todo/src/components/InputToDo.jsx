@@ -6,7 +6,7 @@ export const InputToDo = (props) => {
 
     // stateを作成
     const [text, setText] = useState('');
-    const [priority, setPriority] = useState('0');
+    const [priority, setPriority] = useState('低');
 
     //入力値をtextに反映
     const handleChange = e => setText(e.target.value);
@@ -23,26 +23,34 @@ export const InputToDo = (props) => {
     };
 
     return (
-        <div className="panel-block">
-            <input
-                className="input"
-                type="text"
-                placeholder="Enter to add"
-                value={text}
-                onChange={handleChange}
-            />
+        <>
+            <div className="columns">
+                <div className="column is-four-fifths">
+                    <input
+                        className="input"
+                        type="text"
+                        placeholder="Enter to add"
+                        value={text}
+                        onChange={handleChange}
+                    />
+                </div>
 
+                <div className="column">
+                    <select
+                        className="select"
+                        value={priority}
+                        onChange={handlePriorityChange}>
+                        <option value={'低'}>低</option>
+                        <option value={'中'}>中</option>
+                        <option value={'高'}>高</option>
+                    </select>
+                </div>
 
-            <Select
-                value={priority}
-                onChange={handlePriorityChange}>
-                <MenuItem value={'低'}>低</MenuItem>
-                <MenuItem value={'中'}>中</MenuItem>
-                <MenuItem value={'高'}>高</MenuItem>
-            </Select>
-
-            <button onClick={handleEnter} className="button">Add</button>
-        </div>
+                <div className="column">
+                    <button onClick={handleEnter} className="button">Add</button>
+                </div>
+            </div>
+        </>
     );
 }
 
