@@ -25,6 +25,9 @@ export const ToDo = (props) => {
             >
                 {todo.text}
             </span>
+            <h1>
+                {todo.priority}
+            </h1>
         </label>
     );
 }
