@@ -15,8 +15,16 @@ export const ToDoApp = () => {
 
     // 入力値をtodos(配列)に設定
     const handleAdd = (text,priority) => {
-        setToDos([...todos, { key: getKey(), text, done: false, priority}]);
+        setToDos([...todos, { key: getKey(), text, done: false, priority, createdAt: createdAt()}]);
     };
+
+    const createdAt = () => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        return `${year}年${month}月${day}日`;
+    }
 
     // フィルターの切り替え
     const handleFilterChange = value => setFilter(value);

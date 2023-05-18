@@ -25,6 +25,7 @@ export const ToDo = (props) => {
             >
                 {todo.text}
             </span>
+            <h2>{todo.createdAt}</h2>
             <h1>
                 {todo.priority}
             </h1>
