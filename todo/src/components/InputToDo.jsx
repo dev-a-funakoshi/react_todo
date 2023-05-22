@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
-import {MenuItem, Select} from "@mui/material";
+import {Grid, MenuItem, Select} from "@mui/material";
 
 export const InputToDo = (props) => {
 
@@ -23,34 +23,28 @@ export const InputToDo = (props) => {
     };
 
     return (
-        <>
-            <div className="columns">
-                <div className="column is-four-fifths">
-                    <input
-                        className="input"
-                        type="text"
-                        placeholder="Enter to add"
-                        value={text}
-                        onChange={handleChange}
-                    />
-                </div>
+        <div className="panel-block">
 
-                <div className="column">
-                    <select
-                        className="select"
-                        value={priority}
-                        onChange={handlePriorityChange}>
-                        <option value={'低'}>低</option>
-                        <option value={'中'}>中</option>
-                        <option value={'高'}>高</option>
-                    </select>
-                </div>
+            <input
+                className="input"
+                type="text"
+                placeholder="Enter to add"
+                value={text}
+                onChange={handleChange}
+            />
 
-                <div className="column">
-                    <button onClick={handleEnter} className="button">Add</button>
-                </div>
-            </div>
-        </>
+            <select
+                className="select"
+                value={priority}
+                onChange={handlePriorityChange}>
+                <option value={'低'}>低</option>
+                <option value={'中'}>中</option>
+                <option value={'高'}>高</option>
+            </select>
+
+            <button onClick={handleEnter} className="button">Add</button>
+
+        </div>
     );
 }
 
