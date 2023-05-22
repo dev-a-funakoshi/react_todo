@@ -3,7 +3,6 @@ import 'bulma/css/bulma.css';
 import icon from '../icon.png'
 
 import { InputToDo, Filter, ToDo } from './index';
-import {Card} from "@mui/material";
 
 export const ToDoApp = () => {
 
@@ -51,20 +50,32 @@ export const ToDoApp = () => {
 
     return (
         <div className="panel is-warning">
-            <h1 className="panel-heading" align="center">
-                <img src={icon} width="20" height="20" align="center" alt='' />ToDo
-            </h1>
-            <InputToDo onAdd={handleAdd} />
-            <Filter
-                onChange={handleFilterChange}
-                value={filter}
-            />
-            {displayToDos.map(todo => (
-                <ToDo
-                    key={todo.key}
-                    todo={todo}
-                    onCheck={handleCheck}
+
+            <div className="panel-heading">
+                <h1 className="panel-heading" align="center">
+                    <img src={icon} width="20" height="20" align="center" alt='' />ToDo
+                </h1>
+            </div>
+
+            <div className="panel-block">
+                <InputToDo onAdd={handleAdd} />
+            </div>
+
+            <div className="panel-tabs">
+                <Filter
+                    onChange={handleFilterChange}
+                    value={filter}
                 />
+            </div>
+
+            {displayToDos.map(todo => (
+                <div className="panel-block">
+                    <ToDo
+                        key={todo.key}
+                        todo={todo}
+                        onCheck={handleCheck}
+                    />
+                </div>
             ))}
         </div>
     );

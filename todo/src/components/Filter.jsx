@@ -13,7 +13,7 @@ export const Filter = (props) => {
     };
 
     return (
-        <div className="panel-tabs">
+        <div>
             <a
                 href="#"
                 onClick={handleClick.bind(null, 'ALL')}
