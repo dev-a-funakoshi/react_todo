@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import 'bulma/css/bulma.css';
-import {Card, Grid} from "@mui/material";
+import {Card, Grid, Paper, Stack} from "@mui/material";
 
 
 export const ToDo = (props) => {
@@ -13,30 +13,35 @@ export const ToDo = (props) => {
         onCheck(todo);
     };
 
+    const ToDoText = (text) => {
+        if(text.length < 15) {
+            return text;
+        }
+        else {
+            return text.substring(0, 15) + "...";
+        }
+    }
+
     return (
-        <Card style={{width: '100%'}}>
-            <Grid container spacing={2} justifyContent="space-between">
-                <Grid item xs={1}>
+        <Card sx={{width: "100%", padding: "16px"}} >
+            <Grid container spacing={2} justifyContent="center" alignItems="center" >
+                <Grid item xs={1} style={{textAlign: 'center'}}>
                     <input
                         type="checkbox"
                         checked={todo.done}
                         onChange={handleChange}
                     />
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={11} style={{textAlign: 'center', fontSize: "20px"}}>
                     <span className={classNames({
                         'has-text-grey-light': todo.done
-                    })}>{todo.text}</span>
+                    })}>{ToDoText( todo.text )}</span>
                 </Grid>
-                <Grid item xs={3}>
-                    <Grid container justifyContent="flex-end">
-                        {todo.createdAt}
-                    </Grid>
+                <Grid item xs={8}>
+                    {todo.createdAt}
                 </Grid>
-                <Grid item justifyContent="flex-end" xs={1}>
-                    <Grid container justifyContent="flex-end">
-                        優先度：{todo.priority}
-                    </Grid>
+                <Grid item xs={4}>
+                    優先度：{todo.priority}
                 </Grid>
             </Grid>
         </Card>

@@ -13,7 +13,7 @@ export const Filter = (props) => {
     };
 
     return (
-        <div>
+        <>
             <a
                 href="#"
                 onClick={handleClick.bind(null, 'ALL')}
@@ -29,7 +29,7 @@ export const Filter = (props) => {
                 onClick={handleClick.bind(null, 'DONE')}
                 className={classNames({ 'is-active': value === 'DONE' })}
             >Done</a>
-        </div>
+        </>
     );
 }
 
